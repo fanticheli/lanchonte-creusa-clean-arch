@@ -1,5 +1,5 @@
 import { CategoriaEnum } from "../../src/common/enum/categoria-enum";
-import { Produto } from "../../src/entities/produto/produto";
+import { Produto } from "../../src/entities/produto/produto.entity";
 import { ProdutoProps } from "../../src/entities/produto/props/produto.props";
 
 describe('Produto', () => {

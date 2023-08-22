@@ -1,4 +1,4 @@
-import { Cliente } from "../../src/entities/cliente/cliente";
+import { Cliente } from "../../src/entities/cliente/cliente.entity";
 import { ClienteProps } from "../../src/entities/cliente/props/cliente.props";
 
 describe('Cliente', () => {
