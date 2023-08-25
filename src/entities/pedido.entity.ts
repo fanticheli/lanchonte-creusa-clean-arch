@@ -1,6 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
-import { StatusPagamentoEnum } from "../../common/enum/status-pagamento-enum";
-import { StatusPedidoEnum } from "../../common/enum/status-pedido-enum";
+import { StatusPagamentoEnum } from "../common/enum/status-pagamento-enum";
+import { StatusPedidoEnum } from "../common/enum/status-pedido-enum";
 import { PedidoProps } from "./props/pedido.props";
 
 export class Pedido {
@@ -20,7 +19,7 @@ export class Pedido {
     this._statusPedido = StatusPedidoEnum.PENDENTE;
   }
 
-    get id(): string {
+    get id(): number {
         return this._id;
     }
 

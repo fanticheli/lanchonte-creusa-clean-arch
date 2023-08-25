@@ -1,4 +1,4 @@
-import { CategoriaEnum } from "../../../common/enum/categoria-enum";
+import { CategoriaEnum } from "../../common/enum/categoria-enum";
 
 export type ProdutoProps = {
     id: string;

@@ -1,6 +1,6 @@
 import { CategoriaEnum } from "../../src/common/enum/categoria-enum";
-import { Produto } from "../../src/entities/produto/produto.entity";
-import { ProdutoProps } from "../../src/entities/produto/props/produto.props";
+import { Produto } from "../../src/entities/produto.entity";
+import { ProdutoProps } from "../../src/entities/props/produto.props";
 
 describe('Produto', () => {
     test('should be defined', () => {

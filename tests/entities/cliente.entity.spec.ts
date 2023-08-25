@@ -1,5 +1,5 @@
-import { Cliente } from "../../src/entities/cliente/cliente.entity";
-import { ClienteProps } from "../../src/entities/cliente/props/cliente.props";
+import { Cliente } from "../../src/entities/cliente.entity";
+import { ClienteProps } from "../../src/entities/props/cliente.props";
 
 describe('Cliente', () => {
     test('should be defined', () => {

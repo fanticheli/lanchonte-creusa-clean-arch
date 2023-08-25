@@ -1,4 +1,4 @@
-import { Pedido } from "../../src/entities/pedido/pedido.entity";
+import { Pedido } from "../../src/entities/pedido.entity";
 
 describe('Pedido', () => {
   it('should be defined', () => {

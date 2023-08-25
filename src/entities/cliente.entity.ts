@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { ClienteProps } from './props/cliente.props';
-import { Email } from '../valuesObjects/email';
-import { CPF } from '../valuesObjects/cpf';
+import { Email } from './valuesObjects/email';
+import { CPF } from './valuesObjects/cpf';
 
 export class Cliente {
     private _id: string;

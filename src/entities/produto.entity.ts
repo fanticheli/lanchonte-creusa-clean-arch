@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import { CategoriaEnum } from "../../common/enum/categoria-enum";
 import { ProdutoProps } from "./props/produto.props";
+import { CategoriaEnum } from '../common/enum/categoria-enum';
 
 export class Produto {
   private _id: string;
