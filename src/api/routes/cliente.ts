@@ -13,6 +13,13 @@ router.get("/", async (req, res) => {
 	);
 });
 
+router.get("/cpf/:cpf", async (req, res) => {
+	res.setHeader("Content-type", "application/json");
+	res.json(
+		await ClienteController.BuscarClientePorCPF(clienteRepositoryInMongo, req.params.cpf)
+	);
+});
+
 router.post("/", async (req: Request, res: Response) => {
 	await ClienteController.CriarCliente(clienteRepositoryInMongo, req.body)
 		.then((response: any) => {

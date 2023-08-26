@@ -16,4 +16,13 @@ export class ClienteController {
 		}
 		
 	}
+
+	static async BuscarClientePorCPF(clienteGatewayInterface: IClienteGateway, cpf: string): Promise<ClienteOutput | null> {
+		try {
+			return await ClienteUseCases.BuscarClientePorCPF(clienteGatewayInterface, cpf);
+		} catch (error) {
+			throw error;
+		}
+		
+	}
 }

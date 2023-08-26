@@ -8,14 +8,14 @@ export class ClienteUseCases {
 		clienteGatewayInterface: IClienteGateway,
 		clienteProps: ClienteProps
 	): Promise<ClienteOutput> {
-
-		const clienteExistente = await clienteGatewayInterface.BuscarClientePorCPF(clienteProps.cpf);
+		const novoCliente = new Cliente(clienteProps);
+		const clienteExistente =
+			await clienteGatewayInterface.BuscarClientePorCPF(novoCliente.cpf);
 
 		if (clienteExistente) {
 			throw new Error("Cliente já cadastrado");
 		}
 
-		const novoCliente = new Cliente(clienteProps);
 		return await clienteGatewayInterface.CriarCliente(novoCliente.object);
 	}
 

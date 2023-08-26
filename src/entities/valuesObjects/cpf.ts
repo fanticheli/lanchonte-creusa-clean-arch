@@ -35,6 +35,6 @@ export class CPF {
 	}
 
 	get cpf(): string {
-		return this._cpf;
+		return this._cpf.replace(/[^\d]+/g, "");
 	}
 }
