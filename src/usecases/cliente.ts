@@ -1,4 +1,5 @@
 import { ClienteOutput } from "../adapters/cliente";
+import { Cliente } from "../entities/cliente.entity";
 import { ClienteProps } from "../entities/props/cliente.props";
 import { IClienteGateway } from "../interfaces";
 
@@ -15,7 +16,9 @@ export class ClienteUseCases {
 		clienteGatewayInterface: IClienteGateway,
 		clienteProps: ClienteProps
 	): Promise<ClienteOutput | null> {
-		return await clienteGatewayInterface.criarCliente(clienteProps);
+		const novoCliente = new Cliente(clienteProps)
+
+		return await clienteGatewayInterface.criarCliente(novoCliente.object);
 	}
 
 	static async BuscarTodosClientes(clienteGatewayInterface: IClienteGateway): Promise<ClienteOutput[] | null> {

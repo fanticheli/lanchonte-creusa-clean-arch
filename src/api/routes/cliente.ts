@@ -19,7 +19,7 @@ router.post("/", async (req: Request, res: Response) => {
 			res.status(201).send(response);
 		})
 		.catch((err: any) => {
-			res.status(400).send({ success: false, message: err });
+			res.status(400).send({ message: err?.message });
 		});
 });
 

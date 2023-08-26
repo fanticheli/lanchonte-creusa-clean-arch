@@ -9,6 +9,11 @@ export class ClienteController {
 	}
 
     static async CriarCliente(clienteGatewayInterface: IClienteGateway, clienteProps: ClienteProps): Promise<ClienteOutput | null> {
-		return await ClienteUseCases.CriarCliente(clienteGatewayInterface, clienteProps);
+		try {
+			return await ClienteUseCases.CriarCliente(clienteGatewayInterface, clienteProps);
+		} catch (error) {
+			throw error;
+		}
+		
 	}
 }
