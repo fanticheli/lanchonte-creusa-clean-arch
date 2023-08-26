@@ -1,7 +1,7 @@
 import { Cliente } from "../entities/cliente.entity";
 
 export interface ClienteOutput {
-	id: string;
+	id?: string;
 	nome: string;
 	email: string;
 	cpf: string;

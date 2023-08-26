@@ -6,18 +6,19 @@ import { IClienteGateway } from "../../interfaces";
 export class ClienteRepositoryInMemory implements IClienteGateway {
 	private clientes: Cliente[] = [];
 
-	async criarCliente(clienteProps: ClienteProps): Promise<Cliente> {
+	async CriarCliente(clienteProps: ClienteProps): Promise<ClienteOutput> {
         const novoCliente = new Cliente(clienteProps)
 		this.clientes.push(novoCliente);
-		return novoCliente;
+		novoCliente.id = this.clientes.length.toString();
+		return novoCliente.object;	
 	}
 
-	async buscarClientePorCPF(cpf: string): Promise<ClienteOutput | null> {
+	async BuscarClientePorCPF(cpf: string): Promise<ClienteOutput | null> {
 		const cliente = this.clientes.find((cliente) => cliente.cpf === cpf);
 		return ClienteAdapter.adaptJsonCliente(cliente || null);
 	}
 
-	async buscarTodosClientes(): Promise<ClienteOutput[] | null> {
+	async BuscarTodosClientes(): Promise<ClienteOutput[] | null> {
 		return ClienteAdapter.adaptJsonClientes(this.clientes);
 	}
 }

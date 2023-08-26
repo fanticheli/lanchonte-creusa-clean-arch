@@ -26,14 +26,7 @@ describe('Cliente usecases', () => {
     })
 
     test('should find a client by CPF', async () => {
-        const clienteProps: ClienteProps = {
-            id: '1',
-            nome: 'João',
-            email: 'joão@joão.com.br',
-            cpf: '360.635.210-70'
-        }
-        await ClienteUseCases.CriarCliente(clienteRepository, clienteProps)
-        const cliente = await ClienteUseCases.buscarClientePorCPF(clienteRepository, clienteProps.cpf)
+        const cliente = await ClienteUseCases.BuscarClientePorCPF(clienteRepository, '360.635.210-70');
         
         expect(cliente).toBeDefined()
         expect(cliente?.id).toBe('1')

@@ -2,6 +2,7 @@ import { Cliente } from "../../../entities/cliente.entity";
 import { IClienteGateway } from "../../../interfaces";
 import { ClienteOutput } from "../../../adapters/cliente";
 import { ClienteMongo } from "../model/cliente";
+import { ClienteProps } from "../../../entities/props/cliente.props";
 
 export class ClienteRepositoryInMongo implements IClienteGateway {
 	private _model;
@@ -10,15 +11,17 @@ export class ClienteRepositoryInMongo implements IClienteGateway {
 		this._model = ClienteMongo;
 	}
 
-	async criarCliente(novoCliente: Cliente): Promise<ClienteOutput | null> {
-		return await this._model.create(novoCliente);
+	async CriarCliente(novoCliente: ClienteProps): Promise<ClienteOutput> {
+		const cliente = await this._model.create(novoCliente);
+		novoCliente.id = cliente._id;
+		return novoCliente;
 	}
 
-	async buscarClientePorCPF(cpf: string): Promise<ClienteOutput | null> {
+	async BuscarClientePorCPF(cpf: string): Promise<ClienteOutput | null> {
 		return await this._model.findOne({ cpf });
 	}
 
-	async buscarTodosClientes(): Promise<ClienteOutput[] | null> {
+	async BuscarTodosClientes(): Promise<ClienteOutput[] | null> {
 		return await this._model.find();
 	}
 }
