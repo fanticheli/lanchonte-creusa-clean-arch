@@ -1,35 +1,78 @@
-import { v4 as uuidv4 } from 'uuid';
 import { ProdutoProps } from "./props/produto.props";
-import { CategoriaEnum } from '../common/enum/categoria-enum';
+import { CategoriaEnum } from "../common/enum/categoria-enum";
 
 export class Produto {
-  private _id: string;
-  private _descricao: string;
-  private _valor: number;
-  private _categoria: CategoriaEnum;
+	private _id?: string;
+	private _descricao: string;
+	private _valor: number;
+	private _categoria: CategoriaEnum;
 
-  constructor(produtoProps: ProdutoProps) {
-    this._id = produtoProps.id || uuidv4();
-    this._descricao = produtoProps.descricao;
-    this._valor = produtoProps.valor;
-    this._categoria = produtoProps.categoria;
-  }
+	constructor(produtoProps: ProdutoProps) {
+		if (produtoProps.id) {
+			this._id = produtoProps.id;
+		}
 
-    get id(): string {
-        return this._id;
-    }
+		if (!this.validarDescricao(produtoProps.descricao)) {
+			throw new Error("Descrição inválida");
+		}
 
-    get descricao(): string {
-        return this._descricao;
-    }
+		if (!this.validarValor(produtoProps.valor)) {
+			throw new Error("Valor inválido");
+		}
 
-    get valor(): number {
-        return this._valor;
-    }
+		if (!this.validarCategoria(produtoProps.categoria)) {
+			throw new Error("Categoria inválida");
+		}
 
-    get categoria(): CategoriaEnum {
-        return this._categoria;
-    }
-        
-  
+		this._descricao = produtoProps.descricao;
+		this._valor = produtoProps.valor;
+		this._categoria = produtoProps.categoria;
+	}
+
+	get id(): string | undefined {
+		return this._id;
+	}
+
+	get descricao(): string {
+		return this._descricao;
+	}
+
+	get valor(): number {
+		return this._valor;
+	}
+
+	get categoria(): CategoriaEnum {
+		return this._categoria;
+	}
+
+	get object(): ProdutoProps {
+		return {
+			id: this._id,
+			descricao: this._descricao,
+			valor: this._valor,
+			categoria: this._categoria,
+		};
+	}
+
+	validarDescricao(descricao: string): boolean {
+		if (descricao?.length > 0) {
+			return true;
+		}
+
+		return false;
+	}
+
+	validarValor(valor: number): boolean {
+		if (valor > 0) {
+			return true;
+		}
+
+		return false;
+	}
+
+	validarCategoria(categoria: CategoriaEnum): boolean {
+		return Object.values(CategoriaEnum).includes(categoria);
+	}
+
+	
 }

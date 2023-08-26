@@ -16,19 +16,19 @@ export class ClienteUseCases {
 			throw new Error("Cliente já cadastrado");
 		}
 
-		return await clienteGatewayInterface.CriarCliente(novoCliente.object);
+		return clienteGatewayInterface.CriarCliente(novoCliente.object);
 	}
 
 	static async BuscarClientePorCPF(
 		clienteGatewayInterface: IClienteGateway,
 		CPF: string
 	): Promise<ClienteOutput | null> {
-		return await clienteGatewayInterface.BuscarClientePorCPF(CPF);
+		return clienteGatewayInterface.BuscarClientePorCPF(CPF);
 	}
 
 	static async BuscarTodosClientes(
 		clienteGatewayInterface: IClienteGateway
 	): Promise<ClienteOutput[] | null> {
-		return await clienteGatewayInterface.BuscarTodosClientes();
+		return clienteGatewayInterface.BuscarTodosClientes();
 	}
 }

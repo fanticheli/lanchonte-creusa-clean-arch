@@ -12,7 +12,7 @@ export class ClienteRepositoryInMongo implements IClienteGateway {
 	}
 
 	async CriarCliente(novoCliente: ClienteProps): Promise<ClienteOutput> {
-		return await this._model.create(novoCliente);;
+		return await this._model.create(novoCliente);
 	}
 
 	async BuscarClientePorCPF(cpf: string): Promise<ClienteOutput | null> {

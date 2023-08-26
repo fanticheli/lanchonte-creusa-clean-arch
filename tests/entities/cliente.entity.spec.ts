@@ -19,6 +19,6 @@ describe('Cliente', () => {
         expect(cliente.id).toBe('1');
         expect(cliente.nome).toBe('João');
         expect(cliente.email).toBe('joão@joão.com.br');
-        expect(cliente.cpf).toBe('360.635.210-70');
+        expect(cliente.cpf).toBe('36063521070');
     })
 })

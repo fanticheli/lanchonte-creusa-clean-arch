@@ -20,19 +20,19 @@ describe('Cliente usecases', () => {
         expect(novoCliente?.id).toBe('1')
         expect(novoCliente?.nome).toBe('João')
         expect(novoCliente?.email).toBe('joão@joão.com.br')
-        expect(novoCliente?.cpf).toBe('360.635.210-70')
+        expect(novoCliente?.cpf).toBe('36063521070')
         expect(clientes).toBeDefined()
         expect(clientes).toHaveLength(1)
     })
 
     test('should find a client by CPF', async () => {
-        const cliente = await ClienteUseCases.BuscarClientePorCPF(clienteRepository, '360.635.210-70');
+        const cliente = await ClienteUseCases.BuscarClientePorCPF(clienteRepository, '36063521070');
         
         expect(cliente).toBeDefined()
         expect(cliente?.id).toBe('1')
         expect(cliente?.nome).toBe('João')
         expect(cliente?.email).toBe('joão@joão.com.br')
-        expect(cliente?.cpf).toBe('360.635.210-70')
+        expect(cliente?.cpf).toBe('36063521070')
     })
 
 })

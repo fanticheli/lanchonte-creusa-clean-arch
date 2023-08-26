@@ -24,11 +24,7 @@ export const ClienteAdapter = {
 			};
 		});
 	},
-	adaptJsonCliente: function (cliente: Cliente | null): ClienteOutput | null {
-		if (cliente === null) {
-			return null;
-		}
-
+	adaptJsonCliente: function (cliente: Cliente): ClienteOutput {
 		return {
 			id: cliente.id,
 			nome: cliente.nome,

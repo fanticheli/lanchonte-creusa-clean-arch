@@ -15,7 +15,12 @@ export class ClienteRepositoryInMemory implements IClienteGateway {
 
 	async BuscarClientePorCPF(cpf: string): Promise<ClienteOutput | null> {
 		const cliente = this.clientes.find((cliente) => cliente.cpf === cpf);
-		return ClienteAdapter.adaptJsonCliente(cliente || null);
+
+		if (!cliente) {
+			return null;
+		}
+
+		return ClienteAdapter.adaptJsonCliente(cliente);
 	}
 
 	async BuscarTodosClientes(): Promise<ClienteOutput[] | null> {
