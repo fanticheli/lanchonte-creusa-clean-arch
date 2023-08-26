@@ -4,25 +4,43 @@ import { IClienteGateway } from "../interfaces";
 import { ClienteUseCases } from "../usecases/cliente";
 
 export class ClienteController {
-	static async BuscarTodosClientes(clienteGatewayInterface: IClienteGateway): Promise<ClienteOutput[] | null> {
-		return await ClienteUseCases.BuscarTodosClientes(clienteGatewayInterface);
-	}
-
-    static async CriarCliente(clienteGatewayInterface: IClienteGateway, clienteProps: ClienteProps): Promise<ClienteOutput> {
+	static async BuscarTodosClientes(
+		clienteGatewayInterface: IClienteGateway
+	): Promise<ClienteOutput[] | null> {
 		try {
-			return await ClienteUseCases.CriarCliente(clienteGatewayInterface, clienteProps);
+			return await ClienteUseCases.BuscarTodosClientes(
+				clienteGatewayInterface
+			);
 		} catch (error) {
 			throw error;
 		}
-		
 	}
 
-	static async BuscarClientePorCPF(clienteGatewayInterface: IClienteGateway, cpf: string): Promise<ClienteOutput | null> {
+	static async CriarCliente(
+		clienteGatewayInterface: IClienteGateway,
+		clienteProps: ClienteProps
+	): Promise<ClienteOutput> {
 		try {
-			return await ClienteUseCases.BuscarClientePorCPF(clienteGatewayInterface, cpf);
+			return await ClienteUseCases.CriarCliente(
+				clienteGatewayInterface,
+				clienteProps
+			);
 		} catch (error) {
 			throw error;
 		}
-		
+	}
+
+	static async BuscarClientePorCPF(
+		clienteGatewayInterface: IClienteGateway,
+		cpf: string
+	): Promise<ClienteOutput | null> {
+		try {
+			return await ClienteUseCases.BuscarClientePorCPF(
+				clienteGatewayInterface,
+				cpf
+			);
+		} catch (error) {
+			throw error;
+		}
 	}
 }
