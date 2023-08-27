@@ -26,17 +26,51 @@ export class ProdutoUseCases {
 		produtoGatewayInterface: IProdutoGateway,
 		descricao: string
 	): Promise<ProdutoOutput | null> {
-		return produtoGatewayInterface.BuscarProdutoPorDescricao(
-			descricao
-		);
+		return produtoGatewayInterface.BuscarProdutoPorDescricao(descricao);
 	}
 
 	static async BuscarProdutoPorCategoria(
 		produtoGatewayInterface: IProdutoGateway,
 		categoria: string
 	): Promise<ProdutoOutput[]> {
-		return produtoGatewayInterface.BuscarProdutoPorCategoria(
-			categoria
-		);
+		return produtoGatewayInterface.BuscarProdutoPorCategoria(categoria);
+	}
+
+	static async EditarProduto(
+		produtoGatewayInterface: IProdutoGateway,
+		produtoProps: ProdutoProps
+	): Promise<ProdutoOutput> {
+		if (!produtoProps.id) {
+			throw new Error("ID do produto não informado");
+		}
+
+		const produtoExistente =
+			await produtoGatewayInterface.BuscarProdutoPorID(produtoProps.id);
+
+		if (!produtoExistente) {
+			throw new Error("Produto não encontrado");
+		}
+
+		const produto = new Produto(produtoProps);
+
+		return produtoGatewayInterface.EditarProduto(produto.object);
+	}
+
+	static async DeletarProduto(
+		produtoGatewayInterface: IProdutoGateway,
+		produtoID: string
+	): Promise<void> {
+		if (!produtoID) {
+			throw new Error("ID do produto não informado");
+		}
+
+		const produtoExistente =
+			await produtoGatewayInterface.BuscarProdutoPorID(produtoID);
+
+		if (!produtoExistente) {
+			throw new Error("Produto não encontrado");
+		}
+
+		produtoGatewayInterface.DeletarProduto(produtoID);
 	}
 }

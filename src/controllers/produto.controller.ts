@@ -45,4 +45,34 @@ export class ProdutoController {
 			throw error;
 		}
 	}
+
+	static async EditarProduto(
+		produtoGatewayInterface: IProdutoGateway,
+		produtoProps: ProdutoProps
+	): Promise<ProdutoOutput> {
+		try {
+			return await ProdutoUseCases.EditarProduto(
+				produtoGatewayInterface,
+				produtoProps
+			);
+		} catch (error) {
+			throw error;
+		}
+	}
+
+	static async DeletarProduto(
+		produtoGatewayInterface: IProdutoGateway,
+		produtoID: string
+	): Promise<boolean> {
+		try {
+			await ProdutoUseCases.DeletarProduto(
+				produtoGatewayInterface,
+				produtoID
+			);
+
+			return true;
+		} catch (error) {
+			throw error;
+		}
+	}
 }

@@ -54,6 +54,30 @@ export class Produto {
 		};
 	}
 
+	set descricao(descricao: string) {
+		if (!this.validarDescricao(descricao)) {
+			throw new Error("Descrição inválida");
+		}
+
+		this._descricao = descricao;
+	}
+
+	set valor(valor: number) {
+		if (!this.validarValor(valor)) {
+			throw new Error("Valor inválido");
+		}
+
+		this._valor = valor;
+	}
+
+	set categoria(categoria: CategoriaEnum) {
+		if (!this.validarCategoria(categoria)) {
+			throw new Error("Categoria inválida");
+		}
+
+		this._categoria = categoria;
+	}
+
 	validarDescricao(descricao: string): boolean {
 		if (descricao?.length > 0) {
 			return true;
@@ -73,6 +97,4 @@ export class Produto {
 	validarCategoria(categoria: CategoriaEnum): boolean {
 		return Object.values(CategoriaEnum).includes(categoria);
 	}
-
-	
 }

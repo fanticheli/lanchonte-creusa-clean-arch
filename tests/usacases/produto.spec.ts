@@ -55,4 +55,35 @@ describe("Produto", () => {
 		expect(produtos[0].valor).toBe(10);
 		expect(produtos[0].categoria).toBe(CategoriaEnum.BEBIDA);
 	})
+
+	test("should edit a new product", async () => {
+		const produtoProps: ProdutoProps = {
+			id: "1",
+			descricao: "Produto 1",
+			valor: 10,
+			categoria: CategoriaEnum.BEBIDA,
+		};
+
+		const produtoEditado = await ProdutoUseCases.EditarProduto(
+			produtoRepository,
+			produtoProps
+		);
+
+		expect(produtoEditado).toBeDefined();
+		expect(produtoEditado?.id).toBe("1");
+		expect(produtoEditado?.descricao).toBe("Produto 1");
+		expect(produtoEditado?.valor).toBe(10);
+		expect(produtoEditado?.categoria).toBe(CategoriaEnum.BEBIDA);
+	});
+
+	test("should delete a product", async () => {
+		await ProdutoUseCases.DeletarProduto(produtoRepository, "1");
+
+		const produto = await ProdutoUseCases.BuscarProdutoPorDescricao(
+			produtoRepository,
+			"Produto 1"
+		);
+
+		expect(produto).toBeNull();
+	})
 });

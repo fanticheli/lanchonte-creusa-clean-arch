@@ -35,27 +35,35 @@ export class ProdutoRepositoryInMemory implements IProdutoGateway {
 		return ProdutoAdapter.adaptJsonProdutos(protudosEncontrados);
 	}
 
-	//   async buscarProdutoPorID(id: string): Promise<ProdutoDTO> {
-	//     return this.produtos.find((produto) => produto.id === id);
-	//   }
+	async EditarProduto(
+		editarProdutoDTO: ProdutoProps
+	): Promise<ProdutoOutput> {
+		if (!editarProdutoDTO.id) {
+			throw new Error("ID do produto não informado");
+		}
 
-	//   async editarProduto(editarProdutoDTO: EditarProdutoDTO): Promise<ProdutoDTO> {
-	//     this.produtos.map((produto) => {
-	//       if (produto.id === editarProdutoDTO.id) {
-	//         produto.descricao = editarProdutoDTO.descricao;
-	//         produto.categoria = editarProdutoDTO.categoria;
-	//         produto.valor = editarProdutoDTO.valor;
-	//       }
-	//     });
+		this.produtos.map((produto) => {
+			if (produto.id === editarProdutoDTO.id) {
+				produto.descricao = editarProdutoDTO.descricao;
+				produto.categoria = editarProdutoDTO.categoria;
+				produto.valor = editarProdutoDTO.valor;
+			}
+		});
 
-	//     const produto = this.produtos.find(
-	//       (produto) => produto.id === editarProdutoDTO.id,
-	//     );
+		return this.BuscarProdutoPorID(editarProdutoDTO.id);
+	}
 
-	//     return produto;
-	//   }
+	async BuscarProdutoPorID(id: string): Promise<ProdutoOutput> {
+		const produto = this.produtos.find((produto) => produto.id === id);
 
-	//   deletarProduto(id: string): void {
-	//     this.produtos = this.produtos.filter((produto) => produto.id !== id);
-	//   }
+		if (!produto) {
+			throw new Error("Produto não encontrado");
+		}
+
+		return ProdutoAdapter.adaptJsonProduto(produto);
+	}
+
+	async DeletarProduto(produtoID: string): Promise<void> {
+		this.produtos = this.produtos.filter((produto) => produto.id !== produtoID);
+	}
 }
