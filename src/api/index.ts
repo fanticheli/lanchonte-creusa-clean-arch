@@ -11,10 +11,12 @@ export class LanchoneteCreusa {
 		const indexRoutes = require("./routes/routes");
 		const clienteRoutes = require("./routes/cliente");
 		const produtosRoutes = require("./routes/produto");
+		const pedidosRoutes = require("./routes/pedido");
 
 		app.use("/api", indexRoutes);
 		app.use("/api/clientes", clienteRoutes);
 		app.use("/api/produtos", produtosRoutes);
+		app.use("/api/pedidos", pedidosRoutes);
 
 		app.listen(PORT, () => {
 			console.log(`Lanchonete da Creusa app listening on port ${PORT}`);

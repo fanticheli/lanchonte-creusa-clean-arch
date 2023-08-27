@@ -1,8 +1,7 @@
 export enum StatusPedidoEnum {
-  PREPARACAO = 'Em preparação',
   RECEBIDO = 'Recebido',
+  PREPARACAO = 'Em preparação',
   PRONTO = 'pronto',
   FINALIZADO = 'Finalizado',
-  CANCELADO = 'Cancelado',
-  PENDENTE = 'Pendente'
+  CANCELADO = 'Cancelado'
 }
