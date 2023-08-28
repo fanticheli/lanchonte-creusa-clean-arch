@@ -52,7 +52,7 @@ export class PedidoUseCases {
 		pedidoID: string,
 		statusPagamento: StatusPagamentoEnum
 	): Promise<PedidoOutput> {
-		if (!Object.values(StatusPagamentoEnum).includes(statusPagamento)){
+		if (!Object.values(StatusPagamentoEnum).includes(statusPagamento)) {
 			throw new Error("Status de pedido inválido");
 		}
 
@@ -66,6 +66,12 @@ export class PedidoUseCases {
 
 		pedidoEncontrado.statusPagamento = statusPagamento;
 
+		if (statusPagamento === StatusPagamentoEnum.NEGADO) {
+			pedidoEncontrado.statusPedido = StatusPedidoEnum.CANCELADO;
+		} else if (statusPagamento === StatusPagamentoEnum.APROVADO) {
+			pedidoEncontrado.statusPedido = StatusPedidoEnum.PREPARACAO;
+		}
+
 		return pedidoGatewayInterface.EditarPedido(pedidoEncontrado);
 	}
 
@@ -74,7 +80,7 @@ export class PedidoUseCases {
 		pedidoID: string,
 		statusPedido: StatusPedidoEnum
 	): Promise<PedidoOutput> {
-		if (!Object.values(StatusPedidoEnum).includes(statusPedido)){
+		if (!Object.values(StatusPedidoEnum).includes(statusPedido)) {
 			throw new Error("Status de pedido inválido");
 		}
 
