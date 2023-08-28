@@ -2,9 +2,11 @@ export class MongoConnection {
 	constructor() {}
 
 	static start() {
+		console.log("Iniciando conexão com o MongoDB");
 		const mongoose = require("mongoose");
+		
 		mongoose
-			.connect("mongodb://localhost:27017/lanchonete-creusa-clean-arch", {
+			.connect(process.env.MONGO_URI || 'mongodb://mongo:27017/lanchonete-creusa', {
 				useNewUrlParser: true,
 				useUnifiedTopology: true,
 			})
