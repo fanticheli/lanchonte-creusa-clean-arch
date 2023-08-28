@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    build: .
+    image: fanticheli/lanchonete-creusa-clean-arch
     ports:
       - 3000:3000
     env_file:
