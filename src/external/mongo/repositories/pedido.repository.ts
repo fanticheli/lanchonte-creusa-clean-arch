@@ -53,7 +53,7 @@ export class PedidoRepositoryInMongo implements IPedidoGateway {
 				},
 			},
 			{
-				$sort: { orderStatusValue: 1 },
+				$sort: { createdAt: -1 },
 			},
 			{
 				$addFields: {
