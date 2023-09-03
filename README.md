@@ -18,7 +18,7 @@ Sistema de pedidos para lanchonetes. Cadastro de clientes, gestão de produtos e
 7 - Acesse o serviço da aplicação: minikube service express-app-loadbalancer-service --url
     obs: Espere alguns minutos para que o serviço seja criado e fique disponível.
 
-![Alt text](image.png)
+![Alt text](images/image.png)
 
     O resultado deve ser parecido com o da imagem acima. Utilize a url para acessar a aplicação. 
     Atende-se na porta da imagem, ela pode variar de acordo com a sua configuração do k8s local.
@@ -28,5 +28,5 @@ Sistema de pedidos para lanchonetes. Cadastro de clientes, gestão de produtos e
     O resultado deve ser parecido com o da imagem abaixo. Utilize a url para acessar a aplicação. 
     Atende-se na porta da imagem, ela pode variar de acordo com a sua configuração do k8s local.
 
-![Alt text](image-1.png)
+![Alt text](images/image-1.png)
 
