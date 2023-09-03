@@ -19,4 +19,5 @@ Sistema de pedidos para lanchonetes. Cadastro de clientes, gestão de produtos e
 
 ![Alt text](image.png)
 
-    O resultado deve ser parecido com o da imagem acima. Utilize a url para acessar a aplicação. Atende-se na porta da imagem, ela pode variar de acordo com a sua configuração do k8s local.
+    O resultado deve ser parecido com o da imagem acima. Utilize a url para acessar a aplicação. 
+    Atende-se na porta da imagem, ela pode variar de acordo com a sua configuração do k8s local.
