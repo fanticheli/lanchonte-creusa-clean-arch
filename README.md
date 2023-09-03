@@ -30,3 +30,4 @@ Sistema de pedidos para lanchonetes. Cadastro de clientes, gestão de produtos e
 
 ![Alt text](images/image-1.png)
 
+9 - Use o seguinte comando para ver as metricas da aplicação: kubectl get hpa
