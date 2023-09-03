@@ -5,6 +5,8 @@ export class LanchoneteCreusa {
 		const express = require("express");
 
 		const app = express();
+		const swaggerUi = require("swagger-ui-express");
+		const swaggerSpec = require("./swagger");
 		app.use(express.json());
 		const PORT = process.env.PORT || 3000;
 
@@ -14,6 +16,7 @@ export class LanchoneteCreusa {
 		const pedidosRoutes = require("./routes/pedido");
 
 		app.use("/api", indexRoutes);
+		app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 		app.use("/api/clientes", clienteRoutes);
 		app.use("/api/produtos", produtosRoutes);
 		app.use("/api/pedidos", pedidosRoutes);
@@ -21,6 +24,5 @@ export class LanchoneteCreusa {
 		app.listen(PORT, () => {
 			console.log(`Lanchonete da Creusa app listening on port ${PORT}`);
 		});
-
 	}
 }

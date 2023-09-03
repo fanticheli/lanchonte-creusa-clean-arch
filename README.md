@@ -23,7 +23,7 @@ Sistema de pedidos para lanchonetes. Cadastro de clientes, gestão de produtos e
     O resultado deve ser parecido com o da imagem acima. Utilize a url para acessar a aplicação. 
     Atende-se na porta da imagem, ela pode variar de acordo com a sua configuração do k8s local.
 
-8 - Verifique se a aplicação está em execução: http://127.0.0.1:39831/api
+8 - Verifique se a aplicação está em execução: http://127.0.0.1:PORT/api
     
     O resultado deve ser parecido com o da imagem abaixo. Utilize a url para acessar a aplicação. 
     Atende-se na porta da imagem, ela pode variar de acordo com a sua configuração do k8s local.
@@ -31,3 +31,7 @@ Sistema de pedidos para lanchonetes. Cadastro de clientes, gestão de produtos e
 ![Alt text](images/image-1.png)
 
 9 - Use o seguinte comando para ver as metricas da aplicação: kubectl get hpa
+
+10 - Seguir a documentação da API: http://127.0.0.1:PORT/api-docs
+
+"Use os ids criados no ato do seus testes, substitua os nos objetos quando necessario. Os ids precisam ser os que foram criados no seu banco de dados, e não os do exemplo."
