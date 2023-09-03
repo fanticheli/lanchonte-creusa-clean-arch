@@ -16,8 +16,17 @@ Sistema de pedidos para lanchonetes. Cadastro de clientes, gestão de produtos e
 6 - Verifique se os serviços estão rodando: kubectl get svc
 
 7 - Acesse o serviço da aplicação: minikube service express-app-loadbalancer-service --url
+    obs: Espere alguns minutos para que o serviço seja criado e fique disponível.
 
 ![Alt text](image.png)
 
     O resultado deve ser parecido com o da imagem acima. Utilize a url para acessar a aplicação. 
     Atende-se na porta da imagem, ela pode variar de acordo com a sua configuração do k8s local.
+
+8 - Verifique se a aplicação está em execução: http://127.0.0.1:39831/api
+    
+    O resultado deve ser parecido com o da imagem abaixo. Utilize a url para acessar a aplicação. 
+    Atende-se na porta da imagem, ela pode variar de acordo com a sua configuração do k8s local.
+
+![Alt text](image-1.png)
+
