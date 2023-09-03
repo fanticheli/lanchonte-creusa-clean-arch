@@ -32,6 +32,6 @@ Sistema de pedidos para lanchonetes. Cadastro de clientes, gestão de produtos e
 
 9 - Use o seguinte comando para ver as metricas da aplicação: kubectl get hpa
 
-10 - Seguir a documentação da API: http://127.0.0.1:PORT/api-docs
+10 - Seguir a documentação da API: http://127.0.0.1:PORT/api-docs ou use a collection do POSTMAN na raiz do projeto(FIAP.postman_collection.json).
 
 "Use os ids criados no ato do seus testes, substitua os nos objetos quando necessario. Os ids precisam ser os que foram criados no seu banco de dados, e não os do exemplo."
