@@ -6,7 +6,7 @@ export class MongoConnection {
 		const mongoose = require("mongoose");
 		
 		mongoose
-			.connect(process.env.MONGO_URI || 'mongodb://mongo:27017/lanchonete-creusa', {
+			.connect(process.env.MONGO_URI, {
 				useNewUrlParser: true,
 				useUnifiedTopology: true,
 			})

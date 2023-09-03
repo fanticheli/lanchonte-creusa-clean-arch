@@ -20,6 +20,8 @@ services:
       - ./data:/data/db
     networks:
       - app-network
+    environment:
+      MONGO_URI: mongodb://mongo:27017/lanchonete-creusa
 
 networks:
   app-network:
