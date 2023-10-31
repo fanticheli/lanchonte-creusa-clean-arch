@@ -5,7 +5,9 @@ import { IProdutoGateway } from "../../../interfaces/gateway/produto.gateway.int
 import { ProdutoMongo } from "../model/produto";
 
 export class ProdutoRepositoryInMongo implements IProdutoGateway {
+
 	private _model;
+	private _test;
 
 	constructor() {
 		this._model = ProdutoMongo;
