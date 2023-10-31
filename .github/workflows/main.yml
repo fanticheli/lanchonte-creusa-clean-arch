@@ -1,4 +1,4 @@
-name: Run Unit Tests on PR
+name: Run Unit Tests
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +23,13 @@ jobs:
 
     - name: Run unit tests
       run: npm test
+
+    - name: Set status
+      run: |
+        if [[ ${{ success() }} == 'true' ]]; then
+          echo "Tests passed"
+          gh pr merge $GITHUB_PR_NUMBER --auto
+        else
+          echo "Tests failed"
+          exit 1
+        fi
