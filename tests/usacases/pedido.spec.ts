@@ -81,7 +81,7 @@ describe("Pedido", () => {
 		expect(pedidoAprovado?.statusPagamento).toBe(
 			StatusPagamentoEnum.NEGADO
 		);
-		expect(pedidoAprovado?.statusPedido).toBe(StatusPedidoEnum.RECEBIDO);
+		expect(pedidoAprovado?.statusPedido).toBe(StatusPedidoEnum.CANCELADO);
 	});
 
 	test("Deve alterar o status de um pedido", async () => {
