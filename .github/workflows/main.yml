@@ -1,4 +1,4 @@
-name: Run Unit Tests
+name: CI
 
 on:
   pull_request:
@@ -6,14 +6,14 @@ on:
       - main
 
 jobs:
-  tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
+    - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 14
@@ -21,15 +21,5 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run unit tests
+    - name: Run tests
       run: npm test
-
-    - name: Set status
-      run: |
-        if [[ ${{ success() }} == 'true' ]]; then
-          echo "Tests passed"
-          gh pr merge $GITHUB_PR_NUMBER --auto
-        else
-          echo "Tests failed"
-          exit 1
-        fi
