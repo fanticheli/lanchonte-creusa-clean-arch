@@ -73,7 +73,7 @@ describe("Produto", () => {
 		expect(produtoEditado?.id).toBe("1");
 		expect(produtoEditado?.descricao).toBe("Produto 1");
 		expect(produtoEditado?.valor).toBe(10);
-		expect(produtoEditado?.categoria).toBe(CategoriaEnum.SOBREMESA);
+		expect(produtoEditado?.categoria).toBe(CategoriaEnum.BEBIDA);
 	});
 
 	test("should delete a product", async () => {
