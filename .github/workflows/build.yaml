@@ -55,7 +55,7 @@ jobs:
 
       - name: Deploy to AKS
         run: |
-          kubectl apply -f k8s && kubectl apply -f k8s/application
+          kubectl apply -f k8s --force && kubectl apply -f k8s/application --force
         working-directory: /tmp/k8s-manifests
 
       - name: Logout from Azure
