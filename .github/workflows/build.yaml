@@ -43,7 +43,7 @@ jobs:
 
       - name: Replace image tag in Kubernetes manifest
         run: |
-          sed -i "s/{{.Values.imageTag}}/${{ github.sha }}/g" tmp/k8s-manifests/k8s/application/deployment.yaml
+          sed -i "s/{{.Values.imageTag}}/${{ github.sha }}/g" k8s/application/deployment.yaml
         working-directory: /tmp/k8s-manifests
       
       - name: Set up kubectl
