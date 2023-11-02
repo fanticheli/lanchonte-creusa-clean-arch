@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: mongodb-configmap
 data:
-  MONGO_URI: mongodb+srv://creusinha:lanchoneteCreusa2023@lanchonete-creusa.bvnpbmc.mongodb.net/
+  MONGO_URI: mongodb+srv://creusinha:lanchoneteCreusa2023@lanchonete-creusa.bvnpbmc.mongodb.net/lanchonete-creusa
