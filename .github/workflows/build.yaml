@@ -35,5 +35,28 @@ jobs:
           ACR_REPOSITORY: lanchonetecreusa
         shell: bash
 
+      - name: Clone repository with Kubernetes manifests
+        run: |
+          git clone https://github.com/fanticheli/lanchonte-creusa-kubernetes.git /tmp/k8s-manifests
+        env:
+          K8S_REPO: https://github.com/fanticheli/lanchonte-creusa-kubernetes.git
+
+      - name: Replace image tag in Kubernetes manifest
+        run: |
+          sed -i "s/{{.Values.imageTag}}/${{ github.sha }}/g" tmp/k8s-manifests/k8s/application/deployment.yaml
+        working-directory: /tmp/k8s-manifests
+      
+      - name: Set up kubectl
+        uses: azure/aks-set-context@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          cluster-name: kubernetes_cluster
+          resource-group: resource_lanchonete
+
+      - name: Deploy to AKS
+        run: |
+          kubectl apply -f k8s && kubectl apply -f k8s/application
+        working-directory: /tmp/k8s-manifests
+
       - name: Logout from Azure
         run: az logout
