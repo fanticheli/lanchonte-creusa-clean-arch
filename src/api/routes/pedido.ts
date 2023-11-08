@@ -119,6 +119,13 @@ router.get("/:id/status-pagamento", async (req: Request, res: Response) => {
  *   put:
  *     summary: Altera status de pagamento do pedido por id
  *     tags: [Pedido]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do pedido a ser alterado.
  *     requestBody:
  *       required: true
  *       content:
@@ -156,6 +163,13 @@ router.put("/:id/status-pagamento", async (req: Request, res: Response) => {
  *   put:
  *     summary: Altera status do pedido do pedido por id
  *     tags: [Pedido]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do pedido a ser alterado.
  *     requestBody:
  *       required: true
  *       content:
